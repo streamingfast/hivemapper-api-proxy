@@ -2,9 +2,10 @@ package main
 
 import (
 	"flag"
-	proxy "github.com/streamingfast/api-proxy"
 	"log"
 	"net/http"
+
+	proxy "github.com/streamingfast/api-proxy"
 )
 
 func main() {
