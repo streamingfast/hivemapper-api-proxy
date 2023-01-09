@@ -31,6 +31,7 @@ func (p *Proxy) ServeHTTP(wr http.ResponseWriter, req *http.Request) {
 	newReq.Header = req.Header
 	if p.connectSID != "" {
 		newReq.Header.Set("Cookie", p.connectSID)
+		fmt.Println("cookie", p.connectSID)
 	}
 	newReq.Body = req.Body
 
