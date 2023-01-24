@@ -20,6 +20,7 @@ func (p *Proxy) ServeHTTP(wr http.ResponseWriter, req *http.Request) {
 		p.connectSID = ""
 		wr.WriteHeader(200)
 		wr.Write([]byte("RESET COMPLETED"))
+		addAccessControlHeaders(wr)
 		return
 	}
 
