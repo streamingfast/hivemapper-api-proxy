@@ -15,6 +15,14 @@ type Proxy struct {
 
 func (p *Proxy) ServeHTTP(wr http.ResponseWriter, req *http.Request) {
 	log.Println(req.RemoteAddr, " ", req.Method, " ", req.URL)
+
+	if req.URL.Path == "/reset" {
+		p.connectSID = ""
+		wr.WriteHeader(200)
+		wr.Write([]byte("RESET COMPLETED"))
+		return
+	}
+
 	client := &http.Client{}
 
 	requestURL := req.URL
